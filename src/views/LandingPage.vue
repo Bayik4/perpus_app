@@ -1,30 +1,29 @@
 <template>
-  <ion-page>
-    <ion-content>
-      <div class="container">
-        <h1>WELCOME</h1>
-        <div class="btn">
-          <ion-button class="lp-btn" @click="loginPage">Sign In</ion-button>
-          <ion-button class="lp-btn" @click="registerPage">Sign Up</ion-button>
-        </div>
+  <TempTag>
+    <div class="container">
+      <h1>WELCOME</h1>
+      <div class="btn">
+        <ion-button class="lp-btn" @click="loginPage">Sign In</ion-button>
+        <ion-button class="lp-btn" @click="registerPage">Sign Up</ion-button>
       </div>
-    </ion-content>
-  </ion-page>
+    </div>
+  </TempTag>
 </template>
 
 <script setup lang="ts">
-import { IonPage, IonContent, IonButton } from "@ionic/vue";
-import { useRouter} from 'vue-router';
+import { IonButton } from "@ionic/vue";
+import TempTag from "@/components/TempTag.vue";
+import { useRouter } from "vue-router";
 
 const router = useRouter();
 
 const loginPage = () => {
-    router.push('/login')
-}
+  router.push("/login");
+};
 
 const registerPage = () => {
-    router.push('/register')
-}
+  router.push("/register");
+};
 </script>
 
 <style scoped>

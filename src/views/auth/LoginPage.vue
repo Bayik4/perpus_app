@@ -1,31 +1,30 @@
 <template>
-  <ion-page>
-    <ion-content>
-      <div class="con-login">
-        <h1>Login</h1>
-        <div class="input">
-          <ion-item class="user">
-            <ion-input label="Username" label-placement="floating" placeholder="Enter Username" class="input-login" :maxlength="20"></ion-input>
-          </ion-item>
-          <ion-item class="pass">
-            <ion-input type="password" label="Password" label-placement="floating" placeholder="Enter Password" class="input-login" :maxlength="20"></ion-input>
-          </ion-item>
-          <ion-button class="login">Login</ion-button>
-        </div>
+  <TempTag>
+    <div class="con-login">
+      <h1>Login</h1>
+      <div class="input">
+        <ion-item class="user">
+          <ion-input label="Username" label-placement="floating" placeholder="Enter Username" class="input-login" :maxlength="20"></ion-input>
+        </ion-item>
+        <ion-item class="pass">
+          <ion-input type="password" label="Password" label-placement="floating" placeholder="Enter Password" class="input-login" :maxlength="20"></ion-input>
+        </ion-item>
+        <ion-button class="login">Login</ion-button>
       </div>
-    </ion-content>
-  </ion-page>
+    </div>
+  </TempTag>
 </template>
 
 <script setup lang="ts">
-import { IonPage, IonContent, IonInput, IonButton, IonItem } from "@ionic/vue";
+import { IonInput, IonButton, IonItem } from "@ionic/vue";
+import TempTag from "@/components/TempTag.vue";
 </script>
 
 <style scoped>
 * {
   margin: 0;
   padding: 0;
-  font-family: 'Courier New', Courier, monospace;
+  font-family: "Courier New", Courier, monospace;
 }
 
 .con-login {
