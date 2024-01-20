@@ -21,7 +21,32 @@
 import { IonPage, IonContent, IonInput, IonButton, IonItem } from "@ionic/vue";
 </script>
 
-<style>
+<style scoped>
+* {
+  margin: 0;
+  padding: 0;
+  font-family: 'Courier New', Courier, monospace;
+}
+
+.con-login {
+  margin: 50% 20px;
+  box-shadow: 6px 6px 0px 1px black;
+  border: 1px solid black;
+}
+
+.con-login h1 {
+  font-weight: bold;
+  font-size: 40px;
+  text-align: center;
+}
+
+.input {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
 ion-input.input-login {
   --background: transparent;
   --color: black;
@@ -37,5 +62,28 @@ ion-input.input-login {
 
 ion-item.user {
   margin-bottom: 20px;
+}
+
+ion-button {
+  --background: rgb(230, 230, 230);
+  --background-hover: rgb(220, 220, 220);
+  --background-activated: rgb(215, 215, 215);
+  --background-focused: rgb(220, 220, 220);
+
+  --color: black;
+
+  --border-radius: 5px;
+  /* --border-color: #000;
+  --border-style: solid;
+  --border-width: 0px; */
+
+  /* --box-shadow: 0 2px 6px 0 rgb(0, 0, 0, 0.25); */
+
+  --ripple-color: rgb(100, 100, 100);
+
+  --padding-top: 10px;
+  --padding-bottom: 10px;
+  margin: 20px 0px;
+  width: 130px;
 }
 </style>

@@ -4,8 +4,8 @@
       <div class="container">
         <h1>WELCOME</h1>
         <div class="btn">
-          <ion-button class="lp-btn" href="/login">Sign In</ion-button>
-          <ion-button class="lp-btn" href="/register">Sign Up</ion-button>
+          <ion-button class="lp-btn" @click="loginPage">Sign In</ion-button>
+          <ion-button class="lp-btn" @click="registerPage">Sign Up</ion-button>
         </div>
       </div>
     </ion-content>
@@ -14,9 +14,20 @@
 
 <script setup lang="ts">
 import { IonPage, IonContent, IonButton } from "@ionic/vue";
+import { useRouter} from 'vue-router';
+
+const router = useRouter();
+
+const loginPage = () => {
+    router.push('/login')
+}
+
+const registerPage = () => {
+    router.push('/register')
+}
 </script>
 
-<style>
+<style scoped>
 * {
   margin: 0;
   padding: 0;
