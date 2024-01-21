@@ -1,15 +1,17 @@
 <template>
   <TempTag>
-    <div class="con-login">
-      <h1>Login</h1>
-      <div class="input">
-        <ion-item class="user">
-          <ion-input label="Username" label-placement="floating" placeholder="Enter Username" class="input-login" :maxlength="20"></ion-input>
-        </ion-item>
-        <ion-item class="pass">
-          <ion-input type="password" label="Password" label-placement="floating" placeholder="Enter Password" class="input-login" :maxlength="20"></ion-input>
-        </ion-item>
-        <ion-button class="login">Login</ion-button>
+    <div class="container">
+      <div class="con-login">
+        <h1>Login</h1>
+        <div class="input">
+          <ion-item class="user">
+            <ion-input label="Username" label-placement="floating" placeholder="Enter Username" class="input-login" :maxlength="20"></ion-input>
+          </ion-item>
+          <ion-item class="pass">
+            <ion-input type="password" label="Password" label-placement="floating" placeholder="Enter Password" class="input-login" :maxlength="20"></ion-input>
+          </ion-item>
+          <ion-button class="login" @click="login">Login</ion-button>
+        </div>
       </div>
     </div>
   </TempTag>
@@ -17,20 +19,29 @@
 
 <script setup lang="ts">
 import { IonInput, IonButton, IonItem } from "@ionic/vue";
+import { useRouter } from "vue-router";
 import TempTag from "@/components/TempTag.vue";
+
+const router = useRouter();
+
+const login = () => {
+  router.push("/tabs/tab1");
+};
 </script>
 
 <style scoped>
-* {
-  margin: 0;
-  padding: 0;
-  font-family: "Courier New", Courier, monospace;
+.container {
+  height: 100vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
 }
 
 .con-login {
-  margin: 50% 20px;
-  box-shadow: 6px 6px 0px 1px black;
   border: 1px solid black;
+  box-shadow: 6px 6px 0px 0px black;
+  padding: 10px 25px;
 }
 
 .con-login h1 {
