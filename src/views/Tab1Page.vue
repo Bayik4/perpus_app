@@ -11,125 +11,36 @@
           <ion-title size="large">Home</ion-title>
         </ion-toolbar>
       </ion-header>
-      <div class="content">
-        <div class="pop-books">
-          <h1>Popular Books</h1>
-          <div class="container-content">
-            <div class="card">
-              <div class="card-header">
-                <h3>Book1</h3>
-              </div>
-              <div class="card-body">
-                <p>gambar</p>
-              </div>
-              <div class="card-footer">
-                <h5>Rp. 10.000,-</h5>
-              </div>
-            </div>
-            <div class="card">
-              <div class="card-header">
-                <h3>Book2</h3>
-              </div>
-              <div class="card-body">
-                <p>gambar</p>
-              </div>
-              <div class="card-footer">
-                <h5>Rp. 10.000,-</h5>
-              </div>
-            </div>
-            <div class="card">
-              <div class="card-header">
-                <h3>Book3</h3>
-              </div>
-              <div class="card-body">
-                <p>gambar</p>
-              </div>
-              <div class="card-footer">
-                <h5>Rp. 10.000,-</h5>
-              </div>
-            </div>
-            <div class="card">
-              <div class="card-header">
-                <h3>Book4</h3>
-              </div>
-              <div class="card-body">
-                <p>gambar</p>
-              </div>
-              <div class="card-footer">
-                <h5>Rp. 10.000,-</h5>
-              </div>
-            </div>
-            <div class="card">
-              <div class="card-header">
-                <h3>Book5</h3>
-              </div>
-              <div class="card-body">
-                <p>gambar</p>
-              </div>
-              <div class="card-footer">
-                <h5>Rp. 10.000,-</h5>
-              </div>
-            </div>
-          </div>
-        </div>
-        <div class="rk-books">
-          <h1>Recomendation Books</h1>
-          <div class="container-content">
-            <div class="card">
-              <div class="card-header">
-                <h3>Book1</h3>
-              </div>
-              <div class="card-body">
-                <p>gambar</p>
-              </div>
-              <div class="card-footer">
-                <h5>Rp. 10.000,-</h5>
-              </div>
-            </div>
-            <div class="card">
-              <div class="card-header">
-                <h3>Book2</h3>
-              </div>
-              <div class="card-body">
-                <p>gambar</p>
-              </div>
-              <div class="card-footer">
-                <h5>Rp. 10.000,-</h5>
-              </div>
-            </div>
-            <div class="card">
-              <div class="card-header">
-                <h3>Book3</h3>
-              </div>
-              <div class="card-body">
-                <p>gambar</p>
-              </div>
-              <div class="card-footer">
-                <h5>Rp. 10.000,-</h5>
-              </div>
-            </div>
-            <div class="card">
-              <div class="card-header">
-                <h3>Book4</h3>
-              </div>
-              <div class="card-body">
-                <p>gambar</p>
-              </div>
-              <div class="card-footer">
-                <h5>Rp. 10.000,-</h5>
-              </div>
-            </div>
-            <div class="card">
-              <div class="card-header">
-                <h3>Book5</h3>
-              </div>
-              <div class="card-body">
-                <p>gambar</p>
-              </div>
-              <div class="card-footer">
-                <h5>Rp. 10.000,-</h5>
-              </div>
-            </div>
+      <div class="container">
+        <div class="popular-book">
+          <h1>Popular Book</h1>
+          <div class="content">
+            <swiper
+              :slidesPerView="3"
+              :spaceBetween="30"
+              :pagination="{
+                clickable: true,
+              }"
+              :modules="Pagination">
+              <swiper-slide>
+                <ion-card>
+                  <img alt="Silhouette of mountains" src="https://ionicframework.com/docs/img/demos/card-media.png" />
+                  <ion-card-header>
+                    <ion-card-title>
+                      Book 1
+                    </ion-card-title>
+                  </ion-card-header>
+                  <ion-card-content>
+                    hahahahah
+                  </ion-card-content>
+                </ion-card>
+              </swiper-slide>
+              <swiper-slide>Slide 2</swiper-slide>
+              <swiper-slide>Slide 3</swiper-slide>
+              <swiper-slide>Slide 3</swiper-slide>
+              <swiper-slide>Slide 3</swiper-slide>
+              <swiper-slide>Slide 3</swiper-slide>
+            </swiper>
           </div>
         </div>
       </div>
@@ -138,50 +49,39 @@
 </template>
 
 <script setup lang="ts">
-import { IonPage, IonHeader, IonToolbar, IonTitle, IonContent } from "@ionic/vue";
+import { IonPage,
+        IonHeader,
+        IonToolbar, 
+        IonTitle, 
+        IonContent,
+        IonCard,
+        IonCardContent,
+        IonCardHeader,
+        IonCardTitle } from "@ionic/vue";
+
+import { Swiper, SwiperSlide } from 'swiper/vue';
+
+import 'swiper/css/pagination';
+
+import 'swiper/css';
+
+import '@ionic/vue/css/ionic-swiper.css';
+
+import { Pagination } from 'swiper/modules';
+
+
 </script>
 
 <style scoped>
-.content {
-  /* border: 1px solid black; */
-  margin: 5px;
-}
-
-.pop-books h1 {
-  border-bottom: 2px solid black;
-}
-
-.rk-books h1 {
-  border-bottom: 2px solid black;
-}
-
-.container-content {
-  /* border: 1px solid black; */
-  margin: 5px;
-  display: flex;
-  overflow-x: scroll;
-}
-
-.card {
+.container {
   border: 1px solid black;
-  width: 120px;
-  border-radius: 5px;
-  margin: 10px;
 }
 
-.card-header {
-  padding: 3px 5px;
+.popular-book .content {
+  display: flex;
 }
 
-.card .card-body {
-  height: 80px;
-  width: 100px;
-  padding: 10px;
-  text-align: center;
-}
-
-.card .card-footer {
-  text-align: end;
-  padding: 3px 5px;
+ion-card {
+  margin: 5px;
 }
 </style>
