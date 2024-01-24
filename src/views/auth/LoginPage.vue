@@ -1,32 +1,50 @@
 <template>
   <TempTag>
     <div class="container">
-      <div class="con-login">
-        <h1>Login</h1>
-        <div class="input">
-          <ion-item class="user">
-            <ion-input label="Username" label-placement="floating" placeholder="Enter Username" class="input-login" :maxlength="20"></ion-input>
-          </ion-item>
-          <ion-item class="pass">
-            <ion-input type="password" label="Password" label-placement="floating" placeholder="Enter Password" class="input-login" :maxlength="20"></ion-input>
-          </ion-item>
-          <ion-button class="login" @click="login">Login</ion-button>
-        </div>
-      </div>
+      <ion-card>
+        <ion-card-header>
+          <ion-card-title>LOGIN</ion-card-title>
+        </ion-card-header>
+        <ion-card-content>
+          <Form @submit="isSubmit">
+            <ion-item>
+              <field name="username" v-slot="{field}" rules="required|alpha_num">
+                <ion-input v-bind="field" name="username" label="Username" label-placement="floating" placeholder="Enter your username"></ion-input>
+              </field> 
+              <ErrorMessage name="username" class="error"/>
+            </ion-item>
+            <ion-item>
+              <field name="password" v-slot="{field}" rules="required|alpha_num">
+                <ion-input v-bind="field" name="password" label="Password" label-placement="floating" placeholder="Enter your password"></ion-input>
+              </field> 
+              <ErrorMessage name="password" class="error"/>
+            </ion-item>
+            <ion-button type="submit">Login</ion-button>
+          </Form>
+        </ion-card-content>
+      </ion-card>
     </div>
   </TempTag>
 </template>
 
 <script setup lang="ts">
-import { IonInput, IonButton, IonItem } from "@ionic/vue";
+import { IonInput, IonButton, IonItem, IonCard, IonCardContent, IonCardHeader, IonCardTitle } from "@ionic/vue";
 import { useRouter } from "vue-router";
 import TempTag from "@/components/TempTag.vue";
 
+import { Form, Field, ErrorMessage, defineRule } from "vee-validate";
+import { required, alpha_num } from "@vee-validate/rules";
+
+defineRule('required', required);
+defineRule('alpha_num', alpha_num);
+
 const router = useRouter();
 
-const login = () => {
+const isSubmit = (data: any) => {
+  alert('Data : ' + JSON.stringify(data));
+
   router.push("/tabs/tab1");
-};
+}
 </script>
 
 <style scoped>
@@ -38,62 +56,45 @@ const login = () => {
   align-items: center;
 }
 
-.con-login {
-  border: 1px solid black;
-  box-shadow: 6px 6px 0px 0px black;
-  padding: 10px 25px;
+.error {
+  position: absolute;
+  top: 40px;
+  font-size: 15px;
+  color: var(--ion-color-danger);
 }
 
-.con-login h1 {
-  font-weight: bold;
-  font-size: 40px;
+ion-card {
   text-align: center;
+  padding: 5px;
 }
 
-.input {
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
-}
-
-ion-input.input-login {
-  --background: transparent;
-  --color: black;
-  --placeholder-color: black;
-  --placeholder-opacity: 0.8;
-  --highlight-color-focused: black;
-
-  --padding-bottom: 10px;
-  --padding-top: 10px;
-  --padding-end: 10px;
-  --padding-start: 10px;
-}
-
-ion-item.user {
-  margin-bottom: 20px;
+ion-card-title {
+  font-size: 50px;
+  font-weight: bold;
+  margin: 20px 0px;
+  --color: var(--ion-color-dark);
 }
 
 ion-button {
-  --background: rgb(230, 230, 230);
-  --background-hover: rgb(220, 220, 220);
-  --background-activated: rgb(215, 215, 215);
-  --background-focused: rgb(220, 220, 220);
+  --background: var(--ion-color-light);
+  --background-hover: var(--ion-color-medium-shade);
+  --background-activated: var(--ion-color-medium-tint);
+  --background-focused: var(--ion-color-medium-tint);
 
-  --color: black;
+  --color: var(--ion-color-dark);
 
   --border-radius: 5px;
-  /* --border-color: #000;
+  --border-color: var(--ion-color-dark);
   --border-style: solid;
-  --border-width: 0px; */
+  --border-width: 1px;
 
   /* --box-shadow: 0 2px 6px 0 rgb(0, 0, 0, 0.25); */
 
-  --ripple-color: rgb(100, 100, 100);
+  --ripple-color: var(--ion-color-medium);
+  margin-top: 20px;
+}
 
-  --padding-top: 10px;
-  --padding-bottom: 10px;
-  margin: 20px 0px;
-  width: 130px;
+ion-input {
+  --highlight-color-focused: var(--ion-color-medium);
 }
 </style>

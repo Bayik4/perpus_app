@@ -1,62 +1,77 @@
 <template>
   <TempTag>
     <div class="container">
-      <div class="subcon">
-        <h1>Make An Account</h1>
-        <div class="input">
-          <ion-item>
-            <ion-input label="Name" label-placement="floating" placeholder="Enter your name"></ion-input>
-          </ion-item>
-          <ion-item>
-            <ion-input type="email" label="Email" label-placement="floating" placeholder="Enter your email"></ion-input>
-          </ion-item>
-          <ion-item>
-            <ion-input label="Phone Number" label-placement="floating" placeholder="Enter your phone number"></ion-input>
-          </ion-item>
-          <ion-item>
-            <ion-select label="Gender" label-placement="floating">
-              <ion-select-option value="Male">Male</ion-select-option>
-              <ion-select-option value="Female">Female</ion-select-option>
-            </ion-select>
-          </ion-item>
-          <ion-item>
-            <ion-input label="Username" label-placement="floating" placeholder="Enter Username"></ion-input>
-          </ion-item>
-          <ion-item>
-            <ion-input type="password" label="Passowrd" label-placement="floating" placeholder="Enter Password"></ion-input>
-          </ion-item>
-          <ion-item>
-            <ion-input type="password" label="Repeat Passowrd" label-placement="floating" placeholder="Enter Password"></ion-input>
-          </ion-item>
-        </div>
-        <div class="btn">
-          <ion-button>Register</ion-button>
-          <ion-button @click="back">Back</ion-button>
-        </div>
-      </div>
+      <ion-card>
+        <ion-card-header>
+          <ion-card-title>REGISTER AN ACCOUNT</ion-card-title>
+        </ion-card-header>
+        <ion-card-content>
+          <Form @submit="isSubmit">
+            <ion-item>
+              <field name="nama" v-slot="{field}" rules="required">
+                <ion-input v-bind="field" name="nama" label="Name" label-placement="floating" placeholder="Enter your name"></ion-input>
+              </field>
+              <ErrorMessage name="nama" class="error"/>
+            </ion-item>
+            <ion-item>
+              <field name="gender" v-slot="{field}" rules="required">
+                <ion-select v-bind="field" name="gender" label="Gender" label-placement="floating">
+                  <ion-select-option value="male">Male</ion-select-option>
+                  <ion-select-option value="female">female</ion-select-option>
+                </ion-select>
+              </field>
+              <ErrorMessage name="gender" class="error"/>
+            </ion-item>
+            <ion-item>
+              <field name="username" v-slot="{field}" rules="required">
+                <ion-input v-bind="field" name="username" label="Username" label-placement="floating" placeholder="Enter your username"></ion-input>
+              </field>
+              <ErrorMessage name="username" class="error"/>
+            </ion-item>
+            <ion-item>
+              <field name="password" v-slot="{field}" rules="required">
+                <ion-input v-bind="field" type="password" name="password" label="Password" label-placement="floating" placeholder="Enter your password"></ion-input>
+              </field>
+              <ErrorMessage name="password" class="error"/>
+            </ion-item>
+            <ion-item>
+              <field name="confirmation" v-slot="{field}" rules="required|confirmed:@password">
+                <ion-input v-bind="field" type="password" name="password" label="Repeat Password" label-placement="floating" placeholder="Enter your password again"></ion-input>
+              </field>
+              <ErrorMessage name="confirmation" class="error"/>
+            </ion-item>
+            <ion-button type="submit" class="submit">Register</ion-button>
+            <ion-button @click="back" class="back">Back</ion-button>
+          </Form>
+        </ion-card-content>
+      </ion-card>
     </div>
   </TempTag>
 </template>
 
 <script setup lang="ts">
-import { IonInput, IonButton, IonItem, IonSelect, IonSelectOption } from "@ionic/vue";
+import { IonInput, IonButton, IonItem, IonSelect, IonSelectOption, IonCard, IonCardContent, IonCardHeader, IonCardTitle } from "@ionic/vue";
 import TempTag from "@/components/TempTag.vue";
 import { useRouter } from "vue-router";
+
+import { Form, Field, ErrorMessage, defineRule } from 'vee-validate';
+import { required, confirmed } from '@vee-validate/rules';
+
+defineRule('required', required);
+defineRule('confirmed', confirmed);
 
 const router = useRouter();
 
 const back = () => {
   router.push("/landing");
 };
+
+const isSubmit = (data: any) => {
+  alert('Data : ' + JSON.stringify(data))
+}
 </script>
 
 <style scoped>
-* {
-  margin: 0;
-  padding: 0;
-  font-family: "Courier New", Courier, monospace;
-}
-
 .container {
   height: 100vh;
   display: flex;
@@ -65,68 +80,66 @@ const back = () => {
   align-items: center;
 }
 
-.subcon {
-  border: 1px solid black;
-  padding: 15px 15px 0px 15px;
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
-  box-shadow: 5px 5px 0px 1px black;
+.error {
+  font-size: 15px;
+  color: var(--ion-color-danger);
 }
 
-.container h1 {
+ion-card {
   text-align: center;
+  padding: 10px;
+}
+
+ion-card-title {
+  font-size: 23px;
   font-weight: bold;
-  font-size: 30px;
+  --color: var(--ion-color-dark);
 }
 
-.input {
-  width: 100%;
-}
+.submit {
+  --background: var(--ion-color-light);
+  --background-hover: var(--ion-color-medium-shade);
+  --background-activated: var(--ion-color-medium-tint);
+  --background-focused: var(--ion-color-medium-tint);
 
-.subcon .btn {
-  margin-top: 10px;
-  margin-bottom: 10px;
-}
-
-.subcon .btn ion-button {
-  margin: 8px;
-}
-
-.subcon .btn ion-button:nth-child(1) {
-  --background: rgb(230, 230, 230);
-  --background-hover: rgb(220, 220, 220);
-  --background-activated: rgb(215, 215, 215);
-  --background-focused: rgb(220, 220, 220);
-
-  --color: black;
+  --color: var(--ion-color-dark);
 
   --border-radius: 5px;
-  /* --border-color: #000;
+  --border-color: var(--ion-color-dark);
   --border-style: solid;
-  --border-width: 0px; */
+  --border-width: 1px;
 
   /* --box-shadow: 0 2px 6px 0 rgb(0, 0, 0, 0.25); */
 
-  --ripple-color: rgb(100, 100, 100);
+  --ripple-color: var(--ion-color-medium);
+  margin: 5px;
+  margin-top: 30px;
 }
 
-.subcon .btn ion-button:nth-child(2) {
-  --background: transparent;
+.back {
+  --background: var(--ion-color-dark-contrast);
   --background-hover: rgb(220, 220, 220);
   --background-activated: rgb(215, 215, 215);
   --background-focused: rgb(220, 220, 220);
 
-  --color: black;
+  --color: var(--ion-color-dark);
 
   --border-radius: 5px;
-  --border-color: #000;
+  --border-color: var(--ion-color-dark);
   --border-style: solid;
   --border-width: 1px;
 
   /* --box-shadow: 0 2px 6px 0 rgb(0, 0, 0, 0.25); */
 
   --ripple-color: rgb(100, 100, 100);
+
+  --padding-top: 10px;
+  --padding-bottom: 10px;
+  margin: 5px;
+  margin-top: 30px;
+}
+
+ion-input {
+  --highlight-color-focused: var(--ion-color-medium);
 }
 </style>
