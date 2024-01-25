@@ -8,10 +8,10 @@
         <ion-card-content>
           <Form @submit="isSubmit">
             <ion-item>
-              <field name="username" v-slot="{field}" rules="required|alpha_num">
-                <ion-input v-bind="field" name="username" label="Username" label-placement="floating" placeholder="Enter your username"></ion-input>
+              <field name="email" v-slot="{field}" rules="required|email">
+                <ion-input v-bind="field" type="email" name="email" label="Email" label-placement="floating" placeholder="Enter your email"></ion-input>
               </field> 
-              <ErrorMessage name="username" class="error"/>
+              <ErrorMessage name="email" class="error"/>
             </ion-item>
             <ion-item>
               <field name="password" v-slot="{field}" rules="required|alpha_num">
@@ -33,15 +33,16 @@ import { useRouter } from "vue-router";
 import TempTag from "@/components/TempTag.vue";
 
 import { Form, Field, ErrorMessage, defineRule } from "vee-validate";
-import { required, alpha_num } from "@vee-validate/rules";
+import { required, alpha_num, email } from "@vee-validate/rules";
 
 defineRule('required', required);
 defineRule('alpha_num', alpha_num);
+defineRule('email', email);
 
 const router = useRouter();
 
 const isSubmit = (data: any) => {
-  alert('Data : ' + JSON.stringify(data));
+  // alert('Data : ' + JSON.stringify(data));
 
   router.push("/tabs/tab1");
 }
@@ -57,8 +58,6 @@ const isSubmit = (data: any) => {
 }
 
 .error {
-  position: absolute;
-  top: 40px;
   font-size: 15px;
   color: var(--ion-color-danger);
 }

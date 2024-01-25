@@ -16,8 +16,4 @@ import { IonPage, IonContent } from "@ionic/vue";
   padding: 0;
   font-family: "Courier New", Courier, monospace;
 }
-
-::-webkit-scrollbar {
-  display: none;
-}
 </style>

@@ -8,25 +8,16 @@
         <ion-card-content>
           <Form @submit="isSubmit">
             <ion-item>
-              <field name="nama" v-slot="{field}" rules="required">
-                <ion-input v-bind="field" name="nama" label="Name" label-placement="floating" placeholder="Enter your name"></ion-input>
+              <field name="fullname" v-slot="{field}" rules="required">
+                <ion-input v-bind="field" name="fullname" label="Full Name" label-placement="floating" placeholder="Enter your fullname"></ion-input>
               </field>
-              <ErrorMessage name="nama" class="error"/>
+              <ErrorMessage name="fullname" class="error"/>
             </ion-item>
             <ion-item>
-              <field name="gender" v-slot="{field}" rules="required">
-                <ion-select v-bind="field" name="gender" label="Gender" label-placement="floating">
-                  <ion-select-option value="male">Male</ion-select-option>
-                  <ion-select-option value="female">female</ion-select-option>
-                </ion-select>
+              <field name="email" v-slot="{field}" rules="required|email">
+                <ion-input v-bind="field" type="email" name="email" label="Email" label-placement="floating" placeholder="Enter your email"></ion-input>
               </field>
-              <ErrorMessage name="gender" class="error"/>
-            </ion-item>
-            <ion-item>
-              <field name="username" v-slot="{field}" rules="required">
-                <ion-input v-bind="field" name="username" label="Username" label-placement="floating" placeholder="Enter your username"></ion-input>
-              </field>
-              <ErrorMessage name="username" class="error"/>
+              <ErrorMessage name="email" class="error"/>
             </ion-item>
             <ion-item>
               <field name="password" v-slot="{field}" rules="required">
@@ -55,10 +46,11 @@ import TempTag from "@/components/TempTag.vue";
 import { useRouter } from "vue-router";
 
 import { Form, Field, ErrorMessage, defineRule } from 'vee-validate';
-import { required, confirmed } from '@vee-validate/rules';
+import { required, confirmed, email } from '@vee-validate/rules';
 
 defineRule('required', required);
 defineRule('confirmed', confirmed);
+defineRule('email', email);
 
 const router = useRouter();
 

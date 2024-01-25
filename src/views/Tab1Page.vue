@@ -17,11 +17,13 @@
           <div class="content">
             <swiper
               :slidesPerView="3"
-              :spaceBetween="30"
+              :spaceBetween="15"
+              :freeMode="true"
               :pagination="{
                 clickable: true,
               }"
-              :modules="Pagination">
+              :modules="modules"
+              class="mySwiper">
               <swiper-slide>
                 <ion-card>
                   <img alt="Silhouette of mountains" src="https://ionicframework.com/docs/img/demos/card-media.png" />
@@ -35,11 +37,218 @@
                   </ion-card-content>
                 </ion-card>
               </swiper-slide>
-              <swiper-slide>Slide 2</swiper-slide>
-              <swiper-slide>Slide 3</swiper-slide>
-              <swiper-slide>Slide 3</swiper-slide>
-              <swiper-slide>Slide 3</swiper-slide>
-              <swiper-slide>Slide 3</swiper-slide>
+              <swiper-slide>
+                <ion-card>
+                  <img alt="Silhouette of mountains" src="https://ionicframework.com/docs/img/demos/card-media.png" />
+                  <ion-card-header>
+                    <ion-card-title>
+                      Book 2
+                    </ion-card-title>
+                  </ion-card-header>
+                  <ion-card-content>
+                    hahahahah
+                  </ion-card-content>
+                </ion-card>
+              </swiper-slide>
+              <swiper-slide>
+                <ion-card>
+                  <img alt="Silhouette of mountains" src="https://ionicframework.com/docs/img/demos/card-media.png" />
+                  <ion-card-header>
+                    <ion-card-title>
+                      Book 3
+                    </ion-card-title>
+                  </ion-card-header>
+                  <ion-card-content>
+                    hahahahah
+                  </ion-card-content>
+                </ion-card>
+              </swiper-slide>
+              <swiper-slide>
+                <ion-card>
+                  <img alt="Silhouette of mountains" src="https://ionicframework.com/docs/img/demos/card-media.png" />
+                  <ion-card-header>
+                    <ion-card-title>
+                      Book 4
+                    </ion-card-title>
+                  </ion-card-header>
+                  <ion-card-content>
+                    hahahahah
+                  </ion-card-content>
+                </ion-card>
+              </swiper-slide>
+              <swiper-slide>
+                <ion-card>
+                  <img alt="Silhouette of mountains" src="https://ionicframework.com/docs/img/demos/card-media.png" />
+                  <ion-card-header>
+                    <ion-card-title>
+                      Book 5
+                    </ion-card-title>
+                  </ion-card-header>
+                  <ion-card-content>
+                    hahahahah
+                  </ion-card-content>
+                </ion-card>
+              </swiper-slide>
+            </swiper>
+          </div>
+        </div>
+        <div class="best-book">
+          <h1>Best Book</h1>
+          <div class="content">
+            <swiper
+              :slidesPerView="3"
+              :spaceBetween="15"
+              :freeMode="true"
+              :pagination="{
+                clickable: true,
+              }"
+              :modules="modules"
+              class="mySwiper">
+              <swiper-slide>
+                <ion-card>
+                  <img alt="Silhouette of mountains" src="https://ionicframework.com/docs/img/demos/card-media.png" />
+                  <ion-card-header>
+                    <ion-card-title>
+                      Book 1
+                    </ion-card-title>
+                  </ion-card-header>
+                  <ion-card-content>
+                    hahahahah
+                  </ion-card-content>
+                </ion-card>
+              </swiper-slide>
+              <swiper-slide>
+                <ion-card>
+                  <img alt="Silhouette of mountains" src="https://ionicframework.com/docs/img/demos/card-media.png" />
+                  <ion-card-header>
+                    <ion-card-title>
+                      Book 2
+                    </ion-card-title>
+                  </ion-card-header>
+                  <ion-card-content>
+                    hahahahah
+                  </ion-card-content>
+                </ion-card>
+              </swiper-slide>
+              <swiper-slide>
+                <ion-card>
+                  <img alt="Silhouette of mountains" src="https://ionicframework.com/docs/img/demos/card-media.png" />
+                  <ion-card-header>
+                    <ion-card-title>
+                      Book 3
+                    </ion-card-title>
+                  </ion-card-header>
+                  <ion-card-content>
+                    hahahahah
+                  </ion-card-content>
+                </ion-card>
+              </swiper-slide>
+              <swiper-slide>
+                <ion-card>
+                  <img alt="Silhouette of mountains" src="https://ionicframework.com/docs/img/demos/card-media.png" />
+                  <ion-card-header>
+                    <ion-card-title>
+                      Book 4
+                    </ion-card-title>
+                  </ion-card-header>
+                  <ion-card-content>
+                    hahahahah
+                  </ion-card-content>
+                </ion-card>
+              </swiper-slide>
+              <swiper-slide>
+                <ion-card>
+                  <img alt="Silhouette of mountains" src="https://ionicframework.com/docs/img/demos/card-media.png" />
+                  <ion-card-header>
+                    <ion-card-title>
+                      Book 5
+                    </ion-card-title>
+                  </ion-card-header>
+                  <ion-card-content>
+                    hahahahah
+                  </ion-card-content>
+                </ion-card>
+              </swiper-slide>
+            </swiper>
+          </div>
+        </div>
+        <div class="rekom-book">
+          <h1>Recomendation Book</h1>
+          <div class="content">
+            <swiper
+              :slidesPerView="3"
+              :spaceBetween="15"
+              :freeMode="true"
+              :pagination="{
+                clickable: true,
+              }"
+              :modules="modules"
+              class="mySwiper">
+              <swiper-slide>
+                <ion-card>
+                  <img alt="Silhouette of mountains" src="https://ionicframework.com/docs/img/demos/card-media.png" />
+                  <ion-card-header>
+                    <ion-card-title>
+                      Book 1
+                    </ion-card-title>
+                  </ion-card-header>
+                  <ion-card-content>
+                    hahahahah
+                  </ion-card-content>
+                </ion-card>
+              </swiper-slide>
+              <swiper-slide>
+                <ion-card>
+                  <img alt="Silhouette of mountains" src="https://ionicframework.com/docs/img/demos/card-media.png" />
+                  <ion-card-header>
+                    <ion-card-title>
+                      Book 2
+                    </ion-card-title>
+                  </ion-card-header>
+                  <ion-card-content>
+                    hahahahah
+                  </ion-card-content>
+                </ion-card>
+              </swiper-slide>
+              <swiper-slide>
+                <ion-card>
+                  <img alt="Silhouette of mountains" src="https://ionicframework.com/docs/img/demos/card-media.png" />
+                  <ion-card-header>
+                    <ion-card-title>
+                      Book 3
+                    </ion-card-title>
+                  </ion-card-header>
+                  <ion-card-content>
+                    hahahahah
+                  </ion-card-content>
+                </ion-card>
+              </swiper-slide>
+              <swiper-slide>
+                <ion-card>
+                  <img alt="Silhouette of mountains" src="https://ionicframework.com/docs/img/demos/card-media.png" />
+                  <ion-card-header>
+                    <ion-card-title>
+                      Book 4
+                    </ion-card-title>
+                  </ion-card-header>
+                  <ion-card-content>
+                    hahahahah
+                  </ion-card-content>
+                </ion-card>
+              </swiper-slide>
+              <swiper-slide>
+                <ion-card>
+                  <img alt="Silhouette of mountains" src="https://ionicframework.com/docs/img/demos/card-media.png" />
+                  <ion-card-header>
+                    <ion-card-title>
+                      Book 5
+                    </ion-card-title>
+                  </ion-card-header>
+                  <ion-card-content>
+                    hahahahah
+                  </ion-card-content>
+                </ion-card>
+              </swiper-slide>
             </swiper>
           </div>
         </div>
@@ -62,26 +271,45 @@ import { IonPage,
 import { Swiper, SwiperSlide } from 'swiper/vue';
 
 import 'swiper/css/pagination';
-
+import 'swiper/css/free-mode';
 import 'swiper/css';
-
 import '@ionic/vue/css/ionic-swiper.css';
 
-import { Pagination } from 'swiper/modules';
+import { FreeMode, Pagination } from 'swiper/modules';
 
+const modules = [FreeMode, Pagination];
 
 </script>
 
-<style scoped>
+<style scope>
 .container {
-  border: 1px solid black;
+  padding: 5px;
 }
 
-.popular-book .content {
-  display: flex;
+.mySwiper {
+  padding: 10px;
+}
+
+.popular-book h1 {
+  font-weight: bold;
+  font-size: 30px;
+  border-bottom: 2px solid black;
+}
+
+.best-book h1 {
+  font-weight: bold;
+  font-size: 30px;
+  border-bottom: 2px solid black;
+}
+
+.rekom-book h1 {
+  font-weight: bold;
+  font-size: 30px;
+  border-bottom: 2px solid black;
 }
 
 ion-card {
-  margin: 5px;
+  box-shadow: 4px 4px 0px 0px black;
+  width: 200px;
 }
 </style>
